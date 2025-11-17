@@ -1,0 +1,174 @@
+<!doctype html>
+
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rafaela</title>
+  <style>
+    :root{
+      --bg1:#0b0000;
+      --red-1:#ff1e1e;
+      --red-2:#c20000;
+      --accent:#ff6b6b;
+      --glass: rgba(255,255,255,0.06);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      background: radial-gradient(circle at 10% 20%, var(--red-2) 0%, transparent 10%),
+                  linear-gradient(180deg, var(--bg1), #2b0000 60%);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .card{
+      width:100%;
+      max-width:980px;
+      border-radius:18px;
+      padding:28px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.6));
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      position:relative;
+      overflow:hidden;
+    }
+    header{display:flex;align-items:center;gap:12px}
+    .logo{
+      font-weight:800;font-size:20px;color:var(--red-1);letter-spacing:1px
+    }
+    .subtitle{color:#ffb6b6;font-size:13px}/* First page */
+.page{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px}
+h1{font-size:28px;margin:0;line-height:1.2}
+p.lead{font-size:18px;color:#ffd6d6;margin:0}
+
+/* button */
+.btn{
+  background: linear-gradient(180deg,var(--red-1),var(--red-2));
+  border:2px solid rgba(255,255,255,0.08);
+  padding:12px 20px;border-radius:999px;font-weight:700;cursor:pointer;
+  box-shadow: 0 6px 16px rgba(194,0,0,0.25);
+  transition:transform .12s ease, box-shadow .12s ease;
+  color:white;font-size:16px
+}
+.btn:active{transform:translateY(2px);box-shadow:none}
+
+/* hearts background */
+.hearts{position:absolute;inset:0;pointer-events:none}
+.heart{
+  position:absolute;opacity:0.12;font-size:48px;transform-origin:center center;animation:float 8s infinite linear;
+}
+@keyframes float{
+  0%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-18px) scale(1.05)}
+  100%{transform:translateY(0) scale(1)}
+}
+
+/* second page */
+.stage{display:none;flex-direction:column;gap:18px;align-items:center}
+.stage.active{display:flex}
+video{max-width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+.controls{display:flex;gap:12px;align-items:center}
+.small{font-size:13px;color:#ffdede}
+
+/* decorative kisses */
+.kisses{display:flex;gap:8px;align-items:center}
+.kiss{font-size:22px;transform:rotate(-12deg);opacity:0.9}
+
+footer{margin-top:10px;text-align:center;color:#ffb6b6;font-size:13px}
+
+@media (max-width:520px){h1{font-size:22px}}
+
+  </style>
+</head>
+<body>
+  <div class="card" role="main">
+    <header>
+      <div class="logo">Rafaela</div>
+      <div class="subtitle">Um cantinho feito com carinho</div>
+    </header><!-- hearts layer -->
+<div class="hearts" aria-hidden="true">
+  <!-- multiple hearts placed around -->
+  <div class="heart" style="left:8%;top:12%;font-size:64px;opacity:0.18">❤</div>
+  <div class="heart" style="left:82%;top:8%;font-size:52px;opacity:0.14">💋</div>
+  <div class="heart" style="left:50%;top:6%;font-size:48px;opacity:0.12">❤</div>
+  <div class="heart" style="left:14%;top:72%;font-size:48px;opacity:0.10">💋</div>
+  <div class="heart" style="left:72%;top:68%;font-size:64px;opacity:0.14">❤</div>
+  <div class="heart" style="left:40%;top:40%;font-size:120px;opacity:0.04">❤</div>
+</div>
+
+<!-- Page 1 -->
+<section id="home" class="page" aria-labelledby="main-heading">
+  <h1 id="main-heading">Para o meu amor nunca se esquecer o quanto eu o amo</h1>
+  <p class="lead">Um lembrete eterno, feito com corações, beijos e muito sentimento.</p>
+
+  <button id="startBtn" class="btn" aria-controls="stage">clique aqui se tiver coragem</button>
+  <div class="kisses" aria-hidden="true"><span class="kiss">💋</span><span class="kiss">💋</span><span class="kiss">💋</span></div>
+  <footer>Toque no botão para começar — não feche a aba enquanto a surpresa toca.</footer>
+</section>
+
+<!-- Page 2 / Stage -->
+<section id="stage" class="stage" aria-hidden="true">
+  <h2 class="small">Surpresa — lembre-se: eu te amo</h2>
+
+  <!-- Video (replace video.mp4 with your file) -->
+  <video id="video" playsinline controls preload="auto" tabindex="0">
+    <source src="media/lv_0_20251117160052.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo.
+  </video>
+
+  <!-- Audio element (replace audio.mp3) -->
+  <audio id="audio" preload="auto">
+    <source src="media/media/Miguel-Tri_154912049.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <div class="controls">
+    <button id="pauseBtn" class="btn">Pausar</button>
+    <button id="resumeBtn" class="btn">Tocar</button>
+    <div class="small">Se o som não tocar automaticamente, use o botão "Tocar".</div>
+  </div>
+</section>
+
+  </div>  <script>
+    // Elements
+    const startBtn = document.getElementById('startBtn');
+    const home = document.getElementById('home');
+    const stage = document.getElementById('stage');
+    const audio = document.getElementById('audio');
+    const video = document.getElementById('video');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const resumeBtn = document.getElementById('resumeBtn');
+
+    // Helper to switch pages
+    function showStage(){
+      home.style.display = 'none';
+      stage.classList.add('active');
+      stage.setAttribute('aria-hidden','false');
+      // Attempt to play audio + video. This is triggered by a user click so most browsers will allow playback.
+      // NOTE: Replace 'audio.mp3' and 'video.mp4' with your real filenames or full URLs if hosted elsewhere.
+      Promise.all([
+        audio.play().catch(err => { console.warn('audio play failed:', err); }),
+        video.play().catch(err => { console.warn('video play failed:', err); })
+      ]).then(()=>{
+        // playback started or attempts made
+      });
+    }
+
+    startBtn.addEventListener('click', () => {
+      showStage();
+    });
+
+    pauseBtn.addEventListener('click', () => {
+      audio.pause(); video.pause();
+    });
+    resumeBtn.addEventListener('click', () => {
+      audio.play().catch(()=>{}); video.play().catch(()=>{});
+    });
+
+    // Accessibility: allow Enter key on the main button
+    startBtn.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') startBtn.click(); });
+  </script></body>
+</html>
